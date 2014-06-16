@@ -2,6 +2,8 @@ set -e
 
 TMP_DIR='/tmp/config'
 
+rm -rf $TMP_DIR
+
 echo "\033[0;34mCloning config repo...\033[0m"
 hash git >/dev/null 2>&1 && git clone https://github.com/richardchen331/config.git $TMP_DIR || {
   echo "git not installed"
@@ -28,3 +30,5 @@ if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
 fi
 echo "\033[0;34mCopying vim config from repo...\033[0m"
 cp vimrc ~/.vimrc
+
+rm -rf $TMP_DIR
