@@ -36,9 +36,6 @@ cp zshrc ~/.zshrc
 echo "\033[0;34mCopying zsh theme from repo...\033[0m"
 cp richardchen.zsh-theme $ZSH/themes
 
-echo "\033[0;34mTime to change your default shell to zsh!\033[0m"
-chsh -s `which zsh`
-
 echo "\033[0;34mLooking for an existing vim config...\033[0m"
 if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
   echo "\033[0;33mFound ~/.vimrc.\033[0m \033[0;32mBacking up to ~/.vim.bak\033[0m";
