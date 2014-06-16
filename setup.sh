@@ -4,6 +4,12 @@ TMP_DIR='/tmp/config'
 
 rm -rf $TMP_DIR
 
+echo "\033[0;34mChecking zsh...\033[0m"
+hash zsh >/dev/null 2>&1 || {
+  echo "zsh not installed, please install using apt-get install zsh"
+  exit
+}
+
 echo "\033[0;34mCloning config repo...\033[0m"
 hash git >/dev/null 2>&1 && git clone https://github.com/richardchen331/config.git $TMP_DIR || {
   echo "git not installed"
