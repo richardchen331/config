@@ -19,9 +19,12 @@ else
 	echo "\033[0;34mzsh not found, installing now\033[0m"
 	curl -L http://install.ohmyz.sh | sh
 fi
+
 echo "\033[0;34mCopying zsh config from repo...\033[0m"
 cp zshrc ~/.zshrc
-source ~/.zshrc
+
+echo "\033[0;34mTime to change your default shell to zsh!\033[0m"
+chsh -s `which zsh`
 
 echo "\033[0;34mLooking for an existing vim config...\033[0m"
 if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
