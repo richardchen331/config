@@ -53,7 +53,6 @@ if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
 	echo "\033[0;34mvim solarized not found, installing now\033[0m"
   cd ~/.vim/bundle
   git clone git://github.com/altercation/vim-colors-solarized.git
-  mv vim-colors-solarized ~/.vim/bundle/
   cd $TMP_DIR
 fi
 

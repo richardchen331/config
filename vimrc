@@ -37,6 +37,9 @@ set ruler                         "show current position
 
 set scrolloff=4                   "keep 4 lines of code before & after the cursor
 
+" vim pathogen
+execute pathogen#infect()
+
 syntax enable
 let g:solarized_termcolors=16
 set background=dark
@@ -96,9 +99,6 @@ set tags=tags;/
 
 " remove trailing whitespaces
 autocmd BufWritePre *.scala :%s/\s+$//e
-
-" vim pathogen
-execute pathogen#infect()
 
 " automatically opens the quickfix window after :Ggrep
 autocmd QuickFixCmdPost *grep* cwindow
