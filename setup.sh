@@ -1,8 +1,11 @@
+git clone https://github.com/richardchen331/config.git /tmp/config
+cd /tmp/config
+
 if [ -f ~/.zshrc ]
 then
 	mv ~/.zshrc ~/.zshrc.bak
 else
-	echo 'zsh not found, installing now'
+	echo "\033[0;34mzsh not found, installing now\033[0m"
 	curl -L http://install.ohmyz.sh | sh
 fi
 cp zshrc ~/.zshrc
