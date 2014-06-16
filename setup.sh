@@ -34,11 +34,19 @@ else
 	curl -L http://install.ohmyz.sh | sh
 fi
 
-echo "\033[0;34mCopying zsh config from repo...\033[0m"
-cp zshrc ~/.zshrc
-
 echo "\033[0;34mCopying zsh theme from repo...\033[0m"
 cp richardchen.zsh-theme $ZSH/themes
+
+echo "\033[0;34mChecking for zsh-syntax-highlighting...\033[0m"
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+	echo "\033[0;34mzsh-syntax-highlighting not found, installing now\033[0m"
+  cd ~/.oh-my-zsh/custom/plugins
+  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+  cd $TMP_DIR
+fi
+
+echo "\033[0;34mCopying zsh config from repo...\033[0m"
+cp zshrc ~/.zshrc
 
 # Set up vim
 
