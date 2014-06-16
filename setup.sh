@@ -6,6 +6,13 @@ TMP_DIR='/tmp/config'
 
 rm -rf $TMP_DIR
 
+echo "\033[0;34mCloning config repo...\033[0m"
+hash git >/dev/null 2>&1 && git clone https://github.com/richardchen331/config.git $TMP_DIR || {
+  echo "git not installed"
+  exit
+}
+cd $TMP_DIR
+
 # Set up zsh
 
 if [ ! -n "$ZSH" ]; then
@@ -17,13 +24,6 @@ hash zsh >/dev/null 2>&1 || {
   echo "zsh not installed, please install using apt-get install zsh"
   exit
 }
-
-echo "\033[0;34mCloning config repo...\033[0m"
-hash git >/dev/null 2>&1 && git clone https://github.com/richardchen331/config.git $TMP_DIR || {
-  echo "git not installed"
-  exit
-}
-cd $TMP_DIR
 
 echo "\033[0;34mLooking for an existing zsh config...\033[0m"
 if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
