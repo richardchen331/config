@@ -1,4 +1,4 @@
-config
+config (easy setup of config files)
 ======
 
-Computer config filles
+git clone https://github.com/richardchen331/config.git && cd config && setup.sh
