@@ -29,6 +29,9 @@ fi
 echo "\033[0;34mCopying zsh config from repo...\033[0m"
 cp zshrc ~/.zshrc
 
+echo "\033[0;34mCopying zsh theme from repo...\033[0m"
+cp richardchen.zsh-theme $ZSH/themes
+
 echo "\033[0;34mTime to change your default shell to zsh!\033[0m"
 chsh -s `which zsh`
 
