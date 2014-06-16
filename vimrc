@@ -86,11 +86,6 @@ set showmode
 " change the mapleader from \ to ,
 let mapleader=","
 
-" useful aliases
-command Gcds cd /Users/rchen/workspace/science
-command Gsrc cd /Users/rchen/workspace/science/src/scala/com/twitter/ads/review
-command Gars cd /Users/rchen/workspace/science/ads/review
-
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 " Tab completion (after pressing Ctrl+N to pop up window)
