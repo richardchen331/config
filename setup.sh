@@ -7,23 +7,23 @@ TMP_DIR='/tmp/config'
 rm -rf $TMP_DIR
 
 echo "\033[0;34mChecking required dependencies...\033[0m"
-hash git >/dev/null || {
+hash git >/dev/null 2>&1 || {
   echo "git not installed, please install using apt-get install git"
   exit
 }
-hash wget >/dev/null || {
+hash wget >/dev/null 2>&1 || {
   echo "wget not installed, please install using apt-get install wget"
   exit
 }
-hash curl >/dev/null || {
+hash curl >/dev/null 2>&1 || {
   echo "curl not installed, please install using apt-get install curl"
   exit
 }
-hash vim >/dev/null || {
+hash vim >/dev/null 2>&1 || {
   echo "vim not installed, please install using apt-get install vim"
   exit
 }
-hash zsh >/dev/null || {
+hash zsh >/dev/null 2>&1 || {
   echo "zsh not installed, please install using apt-get install zsh"
   exit
 }
