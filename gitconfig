@@ -3,3 +3,6 @@
 	lineNumber = true
 [alias]
 	g = grep --break --heading --line-number
+[user]
+	name = Richard Chen
+	email = richardchen331@gmail.com
