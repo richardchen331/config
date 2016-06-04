@@ -6,11 +6,30 @@ TMP_DIR='/tmp/config'
 
 rm -rf $TMP_DIR
 
-echo "\033[0;34mCloning config repo...\033[0m"
-hash git >/dev/null 2>&1 && git clone https://github.com/richardchen331/config.git $TMP_DIR || {
-  echo "git not installed"
+echo "\033[0;34mChecking required dependencies...\033[0m"
+hash git >/dev/null || {
+  echo "git not installed, please install using apt-get install git"
   exit
 }
+hash wget >/dev/null || {
+  echo "wget not installed, please install using apt-get install wget"
+  exit
+}
+hash curl >/dev/null || {
+  echo "curl not installed, please install using apt-get install curl"
+  exit
+}
+hash vim >/dev/null || {
+  echo "vim not installed, please install using apt-get install vim"
+  exit
+}
+hash zsh >/dev/null || {
+  echo "zsh not installed, please install using apt-get install zsh"
+  exit
+}
+
+echo "\033[0;34mCloning config repo...\033[0m"
+git clone https://github.com/richardchen331/config.git $TMP_DIR
 cd $TMP_DIR
 
 # Set up zsh
@@ -19,18 +38,12 @@ if [ ! -n "$ZSH" ]; then
   ZSH=~/.oh-my-zsh
 fi
 
-echo "\033[0;34mChecking zsh...\033[0m"
-hash zsh >/dev/null 2>&1 || {
-  echo "zsh not installed, please install using apt-get install zsh"
-  exit
-}
-
-echo "\033[0;34mLooking for an existing zsh config...\033[0m"
+echo "\033[0;34mChecking oh-my-zsh...\033[0m"
 if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
   echo "\033[0;33mFound ~/.zshrc.\033[0m \033[0;32mBacking up to ~/.zshrc.bak\033[0m";
 	mv ~/.zshrc ~/.zshrc.bak
 else
-	echo "\033[0;34mzsh not found, installing now\033[0m"
+	echo "\033[0;34moh-my-zsh not found, installing now\033[0m"
 	curl -L http://install.ohmyz.sh | sh
 fi
 
