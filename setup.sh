@@ -6,6 +6,8 @@ TMP_DIR='/tmp/config'
 
 rm -rf $TMP_DIR
 
+echo "\033[0;34mMac users, please install the following first: brew install wget reattach-to-user-namespace tmux\033[0m"
+
 echo "\033[0;34mChecking required dependencies...\033[0m"
 hash git >/dev/null 2>&1 || {
   echo "git not installed, please install using apt-get install git"
@@ -74,6 +76,7 @@ if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
 	echo "\033[0;34mvim solarized not found, installing now\033[0m"
   cd ~/.vim/bundle
   git clone git://github.com/altercation/vim-colors-solarized.git
+  echo "\033[0;34mRemember to setup solaizied theme for iTerm\033[0m"
   cd $TMP_DIR
 fi
 
@@ -84,6 +87,22 @@ if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
 fi
 echo "\033[0;34mCopying vim config from repo...\033[0m"
 cp vimrc ~/.vimrc
+
+echo "\033[0;34mLooking for an existing git config...\033[0m"
+if [ -f ~/.gitconfig ] || [ -h ~/.gitconfig ]; then
+  echo "\033[0;33mFound ~/.gitconfig.\033[0m \033[0;32mBacking up to ~/.gitconfig.bak\033[0m";
+	mv ~/.gitconfig ~/.gitconfig.bak
+fi
+echo "\033[0;34mCopying git config from repo...\033[0m"
+cp gitconfig ~/.gitconfig
+
+echo "\033[0;34mLooking for an existing tmux config...\033[0m"
+if [ -f ~/.tmux.conf ] || [ -h ~/.tmux.conf ]; then
+  echo "\033[0;33mFound ~/.tmux.conf.\033[0m \033[0;32mBacking up to ~/.tmux.conf.bak\033[0m";
+  mv ~/.tmux.conf ~/.tmux.conf.bak
+fi
+echo "\033[0;34mCopying tmux config from repo...\033[0m"
+cp tmux.conf ~/.tmux.conf
 
 # Clean up temporary working directory
 

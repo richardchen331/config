@@ -103,3 +103,5 @@ export CLICOLOR=1
 alias lh='perl -lne '"'"'m#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2'"'"' $HISTFILE | less'
 
 alias gg='git g'
+
+alias subl='reattach-to-user-namespace /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'

@@ -1,0 +1,5 @@
+[grep]
+	extendRegexp = true
+	lineNumber = true
+[alias]
+	g = grep --break --heading --line-number
