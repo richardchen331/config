@@ -104,6 +104,21 @@ fi
 echo "\033[0;34mCopying tmux config from repo...\033[0m"
 cp tmux.conf ~/.tmux.conf
 
+echo "\033[0;34mSetting up Python3...\033[0m"
+# https://developer.apple.com/metal/tensorflow-plugin/
+# https://caffeinedev.medium.com/how-to-install-tensorflow-on-m1-mac-8e9b91d93706
+echo "\033[0;34mInstalling conda environment first...\033[0m"
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+chmod +x Miniforge3-MacOSX-arm64.sh
+sh Miniforge3-MacOSX-arm64.sh
+echo "\033[0;34mSetting up conda environment...\033[0m"
+conda create --name dev python=3.8
+echo "source activate dev" >> ~/.zshrc
+conda install -c apple tensorflow-deps
+echo "\033[0;34mInstalling python packages...\033[0m"
+python3 -m pip install --upgrade pip setuptools wheel
+python3 -m pip install -r requirements.txt
+
 Clean up temporary working directory
 
 rm -rf $TMP_DIR

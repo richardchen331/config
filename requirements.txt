@@ -1,0 +1,14 @@
+IPython
+jupyterlab
+
+requests
+
+numpy
+pandas
+
+matplotlib
+plotly
+
+# tensorflow # this does not work with Apple M1
+tensorflow-macos
+tensorflow-metal

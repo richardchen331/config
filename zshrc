@@ -105,3 +105,5 @@ alias lh='perl -lne '"'"'m#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar local
 alias gg='git g'
 
 alias subl='reattach-to-user-namespace /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+alias pip='python3 -m pip'
