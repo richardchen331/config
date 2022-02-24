@@ -43,10 +43,10 @@ fi
 echo "\033[0;34mChecking oh-my-zsh...\033[0m"
 if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
   echo "\033[0;33mFound ~/.zshrc.\033[0m \033[0;32mBacking up to ~/.zshrc.bak\033[0m";
-	mv ~/.zshrc ~/.zshrc.bak
+  mv ~/.zshrc ~/.zshrc.bak
 else
-	echo "\033[0;34moh-my-zsh not found, installing now\033[0m"
-	curl -L http://install.ohmyz.sh | sh
+  echo "\033[0;34moh-my-zsh not found, installing now\033[0m"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 echo "\033[0;34mCopying zsh theme from repo...\033[0m"
@@ -54,7 +54,7 @@ cp richardchen.zsh-theme $ZSH/themes
 
 echo "\033[0;34mChecking for zsh-syntax-highlighting...\033[0m"
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-	echo "\033[0;34mzsh-syntax-highlighting not found, installing now\033[0m"
+  echo "\033[0;34mzsh-syntax-highlighting not found, installing now\033[0m"
   cd ~/.oh-my-zsh/custom/plugins
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
   cd $TMP_DIR
@@ -67,13 +67,13 @@ cp zshrc ~/.zshrc
 
 echo "\033[0;34mChecking for vim pathogen...\033[0m"
 if [ ! -f ~/.vim/autoload/pathogen.vim ] && [ ! -h ~/.vim/autoload/pathogen.vim ]; then
-	echo "\033[0;34mvim pathogen not found, installing now\033[0m"
+  echo "\033[0;34mvim pathogen not found, installing now\033[0m"
   mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
 
 echo "\033[0;34mChecking for vim solarized...\033[0m"
 if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
-	echo "\033[0;34mvim solarized not found, installing now\033[0m"
+  echo "\033[0;34mvim solarized not found, installing now\033[0m"
   cd ~/.vim/bundle
   git clone git://github.com/altercation/vim-colors-solarized.git
   echo "\033[0;34mRemember to setup solaizied theme for iTerm\033[0m"
@@ -83,7 +83,7 @@ fi
 echo "\033[0;34mLooking for an existing vim config...\033[0m"
 if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
   echo "\033[0;33mFound ~/.vimrc.\033[0m \033[0;32mBacking up to ~/.vim.bak\033[0m";
-	mv ~/.vimrc ~/.vimrc.bak
+  mv ~/.vimrc ~/.vimrc.bak
 fi
 echo "\033[0;34mCopying vim config from repo...\033[0m"
 cp vimrc ~/.vimrc
@@ -91,7 +91,7 @@ cp vimrc ~/.vimrc
 echo "\033[0;34mLooking for an existing git config...\033[0m"
 if [ -f ~/.gitconfig ] || [ -h ~/.gitconfig ]; then
   echo "\033[0;33mFound ~/.gitconfig.\033[0m \033[0;32mBacking up to ~/.gitconfig.bak\033[0m";
-	mv ~/.gitconfig ~/.gitconfig.bak
+  mv ~/.gitconfig ~/.gitconfig.bak
 fi
 echo "\033[0;34mCopying git config from repo...\033[0m"
 cp gitconfig ~/.gitconfig
@@ -104,6 +104,6 @@ fi
 echo "\033[0;34mCopying tmux config from repo...\033[0m"
 cp tmux.conf ~/.tmux.conf
 
-# Clean up temporary working directory
+Clean up temporary working directory
 
 rm -rf $TMP_DIR
