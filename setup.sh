@@ -119,6 +119,18 @@ echo "\033[0;34mInstalling python packages...\033[0m"
 python3 -m pip install --upgrade pip setuptools wheel
 python3 -m pip install -r requirements.txt
 
+echo "\033[0;34mLooking for an existing jupyter notebook config...\033[0m"
+if [ -f ~/.jupyter/jupyter_notebook_config.py ] || [ -h ~/.jupyter/jupyter_notebook_config.py ]; then
+  echo "\033[0;33mFound ~/.jupyter/jupyter_notebook_config.py.\033[0m \033[0;32mBacking up to ~/.jupyter/jupyter_notebook_config.py.bak\033[0m";
+  mv ~/.jupyter/jupyter_notebook_config.py ~/.jupyter/jupyter_notebook_config.py.bak
+fi
+echo "\033[0;34mCopying jupyter notebook config from repo...\033[0m"
+if [ ! -d ~/.jupyter/ ]; then
+  echo "\033[0;33m~/.jupyter/ does not exist, creating one\033[0m";
+  mkdir ~/.jupyter/
+fi
+cp jupyter_notebook_config.py ~/.jupyter/jupyter_notebook_config.py
+
 Clean up temporary working directory
 
 rm -rf $TMP_DIR
