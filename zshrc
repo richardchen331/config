@@ -107,3 +107,6 @@ alias gg='git g'
 alias subl='reattach-to-user-namespace /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 alias pip='python3 -m pip'
+
+# This fix the issue of conda so we can use the conda env specific python version (https://github.com/conda/conda/issues/9392#issuecomment-617345019)
+unset CONDA_SHLVL
