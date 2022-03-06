@@ -4,6 +4,11 @@ jupytext
 
 requests
 
+bs4
+selenium
+
+dateparser
+
 numpy
 pandas
 
