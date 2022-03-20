@@ -130,6 +130,7 @@ if [ ! -d ~/.jupyter/ ]; then
   mkdir ~/.jupyter/
 fi
 cp jupyter_notebook_config.py ~/.jupyter/jupyter_notebook_config.py
+cp jupyterlab_notebook_extension_user_settings ~/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings
 
 Clean up temporary working directory
 
