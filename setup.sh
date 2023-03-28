@@ -112,7 +112,7 @@ wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge
 chmod +x Miniforge3-MacOSX-arm64.sh
 sh Miniforge3-MacOSX-arm64.sh
 echo "\033[0;34mSetting up conda environment...\033[0m"
-conda create --name dev python=3.8
+conda create --name dev3.9 python=3.9
 echo "source activate dev" >> ~/.zshrc
 conda install -c apple tensorflow-deps
 echo "\033[0;34mInstalling python packages...\033[0m"
